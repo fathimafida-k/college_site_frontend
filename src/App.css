@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.hero {
+  width: 100%;
+  height: 90vh;
+  background-image: url("https://cdn.pixabay.com/photo/2017/09/01/13/56/university-2704306_1280.jpg"); 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  position: relative; /* required */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); /* overlay darkness */
+  z-index: 1; /* behind text */
+}
+
+.hero-content {
+  color: white;
+  max-width: 650px;
+  z-index: 2; /* above overlay */
+}
+
+
+.hero-content h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  font-family: "Inter", sans-serif;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-btn {
+  background-color: #04072d;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+    margin: 0 10px; 
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.hero-btn:hover {
+  background-color: #ff7c29;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    position: relative;
+    transform: translateX(0);
+  }
+  .menu-btn {
+    display: none; /* hide hamburger */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menu-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #a58b74;
+    font-size: 1.8rem;
+    z-index: 1100;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+
+}
