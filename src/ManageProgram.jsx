@@ -67,28 +67,28 @@ console.log(allCourses);
             </div>
          <div className='col-9'>
         
-  <h2 
-    className='text-center mt-5' 
+ <h2 
+    className='text-center mt-4' 
     style={{ 
       fontFamily: "Merriweather, serif", 
       fontWeight: 700,
-      color: "#0B2D48",
+      color: "#1A3C8E",
       fontSize: "2.2rem"
     }}
   >
-    Courses
+    Manage Courses
   </h2>
   
  <div className='mt-5'>
     <Link to={'/add'}>
-      <button style={{backgroundColor:"#030918ff",fontFamily:"poppins"}} className='btn text-light fw-bold'>Add New Course<i class="fa-solid fa-plus"></i></button></Link>
+        <button style={{backgroundColor:"#1A3C8E",fontFamily:"poppins",color:"#F4C430"}} className='btn  fw-bold'>Add Course<i class="fa-solid fa-plus"></i></button></Link>
  </div>
             <div className="table-responsive mt-5" style={{ width: "90%", maxWidth: "800px" }}>
  {allCourses.length>0 ?  <Table striped bordered hover className="text-center mt-2">
       <thead>
         <tr>
           <th>Course Name</th>
-          <th>Faculties</th>
+          <th>Duration</th>
           <th>Fees</th>
           <th>View Details</th>
           <th><i class="fa-solid fa-ellipsis"></i></th>
@@ -104,10 +104,8 @@ console.log(allCourses);
       {allCourses.map((item)=>(
  <tr>
           <td>{item.Cname}</td>
-          <td>
-       {item.faculty}
-
-          </td>
+          <td>{item?.duration}</td>
+         
           <td>{item.fees}</td>
           
         

@@ -15,8 +15,8 @@ const navigate = useNavigate()
   duration: "",
   level: "",
   fees: "",
+  dept:"",
   syllabus: "",
-  faculty: "",
   image: ""
 });
 console.log(addCourse);
@@ -24,8 +24,8 @@ console.log(addCourse);
 
 
 const handleUpload=async()=>{
-      const{Cname,description,duration,level,fees,syllabus,faculty,image}= addCourse
-      if(Cname&&description&&duration&&level&&fees&&syllabus&&faculty&&image){
+      const{Cname,description,duration,level,fees,syllabus,image,dept}= addCourse
+      if(Cname&&description&&duration&&level&&fees&&syllabus&&image&&dept){
         //api
 
         //reqbody
@@ -36,7 +36,7 @@ const handleUpload=async()=>{
         reqBody.append("level",level)
         reqBody.append("fees",fees)
         reqBody.append("syllabus",syllabus)
-        reqBody.append("faculty",faculty)
+         reqBody.append("dept",dept)
         reqBody.append("image",image)
         //reqheader
         const token = sessionStorage.getItem("token")
@@ -125,14 +125,27 @@ const handleUpload=async()=>{
                   </div>
                 </div>
 
-                <label className='mt-2'>Fee per Sem:</label>
-                <input onChange={(e)=>setAddCourse({...addCourse,fees:e.target.value})}  type="number" className="form-control mt-1" placeholder="Enter fees" />
+                <label className='mt-2'>Fee Details:</label>
+                <input onChange={(e)=>setAddCourse({...addCourse,fees:e.target.value})}  type="text" className="form-control mt-1" placeholder="Enter fees" />
 
                 <label className='mt-2'>Syllabus Details:</label>
                 <textarea onChange={(e)=>setAddCourse({...addCourse,syllabus:e.target.value})}  className="form-control mt-1" placeholder="Enter syllabus topics separated by commas" />
-
-                <label className='mt-2'>Faculties:</label>
-                <input onChange={(e)=>setAddCourse({...addCourse,faculty:e.target.value})}  type="text" className="form-control mt-1" placeholder="Enter faculty name" />
+   <div className="w-50">
+                    <label>Department:</label>
+                    <select onChange={(e)=>setAddCourse({...addCourse,dept:e.target.value})}  className="form-select mt-1">
+                      <option value="" hidden>Select Dept</option>
+                      <option value="Computer Science">Computer Science</option>
+                       <option value="English">English</option>
+                       <option value="Commerce">Commerce</option>
+                       <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                       <option value="History">History</option>
+                       <option value="Botany">Botany</option>
+                       <option value="Chemistry">Chemistry</option>
+                       <option value="MicroBiology">MicroBiology</option>
+                    
+                    </select>
+                  </div>
 
                 <h5 className='text-center mt-3'>Upload Course Image</h5>
                 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>

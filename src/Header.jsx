@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import emblem from "./assets/emblem.png";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -43,7 +42,7 @@ function Header() {
       expand="lg"
       style={{
         padding: "0.7rem 2rem",
-        background: "white",
+        background: "#F7F9FC",
         boxShadow: "0 1px 6px rgba(0,0,0,0.1)",
       }}
       fixed="top"
@@ -52,11 +51,7 @@ function Header() {
 
         <div className="d-flex align-items-center">
           <Link to="/" className="d-flex align-items-center" style={{ textDecoration: "none" }}>
-            <img
-              src={emblem}
-              alt="Emblem"
-              style={{ height: "65px", width: "auto" }}
-            />
+            <h2 style={{color:"#1A3C8E",fontSize:"1.5rem",fontFamily:"Monteserrat"}}><i class="fa-solid fa-graduation-cap"></i>Raynott College</h2>
           </Link>
         </div>
 
@@ -69,16 +64,16 @@ function Header() {
         >
           <Nav style={{ gap: "2rem", fontWeight: 500 }}>
 
-            <Nav.Link as={Link} to="/" style={{ color: "#222" }}>
+            <Nav.Link as={Link} to="/" style={{ color: "#1B1B1B" }}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/about" style={{ color: "#222" }}>
+            <Nav.Link as={Link} to="/about" style={{ color: "#1B1B1B" }}>
               About
             </Nav.Link>
        
 
             {/* Programs Dropdown */}
-         <NavDropdown title="Programs" id="programs-dropdown" style={{ color: "#222" }}>
+         <NavDropdown title="Programs" id="programs-dropdown" style={{ color: "#1B1B1B" }}>
   {allCourses.length > 0 ? (
     allCourses.map((course) => (
       <NavDropdown.Item
@@ -95,8 +90,15 @@ function Header() {
 </NavDropdown>
 
 
-            <Nav.Link as={Link} to="/contact" style={{ color: "#222" }}>
-              Contact
+       
+            
+            <Nav.Link as={Link} to="/faculty" style={{ color: "#1B1B1B" }}>
+             Faculties
+            </Nav.Link>
+              
+                
+             <Nav.Link as={Link} to="/login" style={{ color: "#1B1B1B" }}>
+            <i class="fa-solid fa-lock"></i>Admin
             </Nav.Link>
 
           </Nav>
@@ -104,10 +106,10 @@ function Header() {
 
         <div>
           <Link
-            to="/login"
+            to="/admission"
             className="btn"
             style={{
-              backgroundColor: "#003366",
+              backgroundColor: "#F4C430",
               color: "white",
               padding: "0.45rem 1.2rem",
               borderRadius: "6px",
@@ -115,7 +117,7 @@ function Header() {
               letterSpacing: "0.3px",
             }}
           >
-            Login
+          Apply Now
           </Link>
         </div>
       </Container>

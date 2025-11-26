@@ -29,3 +29,24 @@ export const EditCourseAPI=async(id,reqBody,reqHeader)=>{
     return await commonAPI('PUT',`${SERVER_URL}/edit-course/${id}`,reqBody,reqHeader)
  
 }
+export const addFacultyAPI=async(reqBody,reqHeader)=>{
+    return await commonAPI('POST',`${SERVER_URL}/add-faculty`,reqBody,reqHeader)
+ 
+}
+export const getfacultyAPI=async()=>{
+    return await commonAPI('GET',`${SERVER_URL}/get-faculty`,{})
+ 
+}
+export const newAdmisssionAPI=async(reqBody)=>{
+    return await commonAPI('POST',`${SERVER_URL}/admission`,reqBody)
+}
+export const getAdmisssionAPI=async(reqHeader)=>{
+    return await commonAPI('GET',`${SERVER_URL}/get-admission`,{},reqHeader)
+}
+export const deleteFacultyAPI=async(id,reqHeader)=>{
+    return await commonAPI('DELETE',`${SERVER_URL}/delete-faculty/${id}`,{},reqHeader)
+}
+export const EditFacultyAPI=async(id,reqBody,reqHeader)=>{
+    return await commonAPI('PUT',`${SERVER_URL}/edit-faculty/${id}`,reqBody,reqHeader)
+ 
+}

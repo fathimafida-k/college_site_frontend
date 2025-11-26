@@ -3,19 +3,73 @@ import Header from "./Header";
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Footer from "./Footer";
+import DepartmentCard from "./DepartmentCard";
 
 function Home() {
+  const departments=[
+        {
+          img:"https://www.sirtbhopal.ac.in/assets/images/blogs/exploring-the-in-demand-specializations-in-computer-science-engineering.webp",
+          name:"Computer Science",
+          desc: "A department dedicated to computing, software development, and innovative technological."
+        },
+        {
+          
+          img: "https://snu.edu.in/site/assets/files/11901/86cb4198-f490-4f56-a25f-8399a039edf4.1600x0.webp",
+          name:"English",
+          desc: "A department focused on business, finance, accounting, and modern commercial practices."
+        },
+       {
+          
+          img: "https://stcyrils.ac.in/content/uploads/IMG-20240819-WA0024.jpg",
+          name:"Commerce",
+          desc: "A department dedicated to the study of language, literature, and effective communication"
+        },
+       
+         {
+          
+          img: " https://gonitsora.com/content/images/wordpress/2014/03/15E43A6F-3941-471A-BF4A81AECDC8C8AA_source.jpg",
+          name:"Mathematics",
+          desc: "Dedicated to the study of numbers, logic, and mathematical problem-solving"
+        },
+          {
+          img: " https://t4.ftcdn.net/jpg/02/14/56/75/360_F_214567514_hGbTMUq06pJIGKiXA248l43E3hU9Q08x.jpg",
+          name:"Physics",
+          desc: "Explores the fundamental laws of nature through theory, experimentation, and scientific inquiry"
+        },
+      {
+          img: " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWz_tIgvQXPAaSmvYa7CqZo_biaRK9D_O8uA&s",
+          name:"History",
+          desc: "A department committed to understanding past civilizations, cultures, and historical events"
+        },
+          {
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8fPlIAKx4BoMqUikAiiCDSnoHUIO4S3aCHQ&s",
+          name:"Botany",
+          desc: "A department dedicated to the scientific study of plants, their structure, function, and diversity"
+        },
+          {
+          img: "https://nailknowledge.org/wp-content/uploads/2021/04/chemical-1024x683.jpg",
+          name:"Chemistry",
+          desc: "A department exploring the composition, properties, and reactions of matter through theory"
+        },
+          {
+          img: " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEk-3e4ZOOUqebTgJsvYLQNIv6gE_0noRCxg&s",
+          name:"Microbiology",
+          desc: "A department focused on the study of microorganisms and their role in health."
+        },
+      ]
   return (
     <>
       <Header />
 
       <div className="hero">
         <div className="hero-content">
-          <h1>"Shaping Leaders for Tomorrow’s World"</h1>
-          <p>A premier institution dedicated to empowering students with world-class education, cutting-edge research, and a thriving campus culture.</p>
-{/* 
-          <button className="hero-btn mb-1">Apply Now</button>
-           <button className="hero-btn mb-1">Explore Programs</button> */}
+          <h1 style={{fontFamily:"Merriweather"}}>Empowering Minds, Shaping Futures</h1>
+          <p style={{fontFamily:"Open Sans"}}>Providing quality education, innovation, and opportunities for every learner.</p>
+          <div className="d-flex justify-content-center">
+        <Link to={'/admission'}>
+        <button className="btn" style={{backgroundColor:"#1A3C8E",color:"white",fontWeight:"bold"}}>Apply Now</button></Link>
+          </div>
+
         </div>
       </div>
 
@@ -36,7 +90,7 @@ function Home() {
     style={{ 
       fontFamily: "Merriweather, serif", 
       fontWeight: 700,
-      color: "#0B2D48",
+      color: "#1A3C8E",
       fontSize: "2.2rem"
     }}
   >
@@ -47,7 +101,7 @@ function Home() {
 
     <div className="row justify-content-center">
 
-      {/* === DATA ARRAY FOR CARDS === */}
+     
       {[
         {
           count: "10,000+",
@@ -91,10 +145,11 @@ function Home() {
           <div style={{
             background: "#ffffff",
             height: "100%",
+            border:"1px solid #DDE3EC",
             minHeight: "16rem",
             borderRadius: "18px",
             padding: "1.5rem",
-            boxShadow: "0 8px 26px rgba(0,0,0,0.12)"
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)"
           }}>
 
             <h1 
@@ -102,7 +157,7 @@ function Home() {
               style={{
                 fontFamily: "Poppins",
                 fontWeight: 700,
-                color: "#0B2D48",
+                color: "#1A3C8E",
                 fontSize: "2rem"
               }}
             >
@@ -114,7 +169,7 @@ function Home() {
               style={{
                 fontFamily: "Merriweather, serif",
                 fontSize: "1.1rem",
-                color: "#CFA34A",
+                color: "#F4C430",
                 marginTop: "0.6rem"
               }}
             >
@@ -126,7 +181,7 @@ function Home() {
               className='text-center'
               style={{
                 fontFamily: "Inter",
-                color: "#4B5563",
+                color: "#1B1B1B",
                 fontSize: "0.95rem",
                 marginTop: "0.7rem",
                 lineHeight: 1.6
@@ -148,30 +203,22 @@ function Home() {
       {/* about */}
 
 <div className="mt-5" style={{ padding:"0 2rem" }}>
+  <h1 style={{fontFamily:"Merriweather",color:"#1A3C8E"}} className="text-center">Who We Are</h1>
   
   <div className='row mt-5'>
-    
-    {/* IMAGE */}
+
     <div className='col-lg-6'>
       <img 
         className='img-fluid ms-2 rounded shadow'
         style={{ width:"100%", height:"30rem", objectFit:"cover" }}
-        src="https://media.istockphoto.com/id/1316808714/photo/four-young-students-study-in-the-school-library-female-student-using-laptop-for-researching.jpg?s=612x612&w=0&k=20&c=h7rjGZTcWRKKTYf7mNOHwj-J-k8AVp5apXPf6coGnX8="
+        src="https://ccrc.tc.columbia.edu/wp-content/uploads/2025/04/teaching-community-college-students-versatile-learners.jpg"
         alt="College Campus"
       />
     </div>
 
-    {/* TEXT */}
     <div className='col-lg-6'>
       
-      <h2 style={{ 
-        fontFamily:'Playfair Display', 
-        color:'#1a237e', 
-        fontWeight:'600' 
-      }}>
-        Building Excellence Through Quality Education
-      </h2>
-
+ 
       <div style={{ 
         color:"#555555", 
         fontFamily:"Inter", 
@@ -180,7 +227,7 @@ function Home() {
       }}>
         
         <p>
-          At <b>BrightMind College</b>, we are committed to shaping the next 
+          At <b>Raynott College</b>, we are committed to shaping the next 
           generation of leaders, innovators, and professionals. With a 
           student-centric learning environment, our institution focuses on 
           academic excellence, practical exposure, and holistic development.
@@ -205,20 +252,18 @@ function Home() {
 
       </div>
 
-      {/* BUTTON */}
       <Link to={'/about'}>
         <button  
+        className="btn"
           style={{ 
             marginTop:"1.5rem",
             padding:"0.9rem 1.8rem",
-            backgroundColor:"#1565c0",
-            border:"none",
             borderRadius:"0.5rem",
             fontSize:"1rem",
-            color:"white",
-            fontWeight:600,
-            letterSpacing:"0.5px",
-            boxShadow:"0 4px 12px rgba(0,0,0,0.2)"
+            color:"#1565c0",
+            fontWeight:"bold",
+            textDecoration:"underline"
+          
           }}>
           Learn More
         </button>
@@ -233,108 +278,17 @@ function Home() {
    
       {/* dept */}
       <div className='mt-5'>
-  <h2 className="text-center mb-3"
-    style={{ fontFamily: "Playfair Display", fontWeight: 600, color: "#1E3A8A" }}>
-    Our Departments
-  </h2>
+  <h1 style={{fontFamily:"Merriweather",color:"#1A3C8E",fontWeight:"bold"}} className="text-center">Our Departments</h1>
 
   <h6 className='text-center' style={{ color:"#555555", fontFamily:"Inter" }}>
     Explore our top undergraduate & postgraduate programs designed for future-ready careers
   </h6>
 
   <div className="container mt-4">
-    <div className="row g-4 justify-content-center">
-
-      {/* Computer Science */}
-      <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-        <Card className="h-100 shadow-sm border-0" style={{ borderRadius:"12px" }}>
-          <Card.Img style={{ height:"16rem", objectFit:"cover" }}
-            src="https://www.sirtbhopal.ac.in/assets/images/blogs/exploring-the-in-demand-specializations-in-computer-science-engineering.webp"
-          />
-          <Card.Body>
-            <h4 style={{ fontFamily: "Playfair Display", color: "#1E3A8A" }}>Computer Science</h4>
-            <p style={{ color:"#555", fontFamily:"Inter" }}>
-              Learn programming, AI, databases, and full-stack development with modern labs.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Commerce */}
-      <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-        <Card className="h-100 shadow-sm border-0" style={{ borderRadius:"12px" }}>
-          <Card.Img style={{ height:"16rem", objectFit:"cover" }}
-            src="https://media.istockphoto.com/id/942682414/photo/businessman-working-in-office-with-using-calculator-and-laptop-concept-finance-and-accounting.jpg?s=612x612&w=0&k=20&c=HGBNg6WJ166u8IF8OO7xUYSqGgaxyfiuNRUyd5XabWo="
-          />
-          <Card.Body>
-            <h4 style={{ fontFamily: "Playfair Display", color: "#1E3A8A" }}>Commerce</h4>
-            <p style={{ color:"#555", fontFamily:"Inter" }}>
-              Develop skills in finance, taxation, banking, and business management.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Science */}
-      <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-        <Card className="h-100 shadow-sm border-0" style={{ borderRadius:"12px" }}>
-          <Card.Img style={{ height:"16rem", objectFit:"cover" }}
-            src="https://static.vecteezy.com/system/resources/thumbnails/072/458/620/small/science-experiment-with-glowing-liquid-in-beaker-research-and-development-photo.jpg"
-          />
-          <Card.Body>
-            <h4 style={{ fontFamily: "Playfair Display", color: "#1E3A8A" }}>Science</h4>
-            <p style={{ color:"#555", fontFamily:"Inter" }}>
-              Study Physics, Chemistry, Mathematics & Biology with advanced lab facilities.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Management */}
-      <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-        <Card className="h-100 shadow-sm border-0" style={{ borderRadius:"12px" }}>
-          <Card.Img style={{ height:"16rem", objectFit:"cover" }}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8HmUSyhptJSAceCDN6-udJmnWkIAvloz2Aw&s"
-          />
-          <Card.Body>
-            <h4 style={{ fontFamily: "Playfair Display", color: "#1E3A8A" }}>Management</h4>
-            <p style={{ color:"#555", fontFamily:"Inter" }}>
-              Learn leadership, entrepreneurship, HR, marketing & business strategy.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Humanities */}
-      <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-        <Card className="h-100 shadow-sm border-0" style={{ borderRadius:"12px" }}>
-          <Card.Img style={{ height:"16rem", objectFit:"cover" }}
-            src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
-          />
-          <Card.Body>
-            <h4 style={{ fontFamily: "Playfair Display", color: "#1E3A8A" }}>Humanities</h4>
-            <p style={{ color:"#555", fontFamily:"Inter" }}>
-              Explore Psychology, Sociology, History, English Literature & Social Studies.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
-      {/* Biotechnology */}
-      <div className="col-12 col-sm-6 col-md-4 col-lg-4">
-        <Card className="h-100 shadow-sm border-0" style={{ borderRadius:"12px" }}>
-          <Card.Img style={{ height:"16rem", objectFit:"cover" }}
-            src="https://genflowbio.com/wp-content/uploads/2021/11/Biotechnology-1024x683.jpg"
-          />
-          <Card.Body>
-            <h4 style={{ fontFamily: "Playfair Display", color: "#1E3A8A" }}>Biotechnology</h4>
-            <p style={{ color:"#555", fontFamily:"Inter" }}>
-              Study genetics, microbiology & biochemical engineering through real-time labs.
-            </p>
-          </Card.Body>
-        </Card>
-      </div>
-
+    <div className="row g-4 justify-content-around">
+   {departments.map((data)=>(
+  <div className="col-lg-4"> <DepartmentCard data={data} /></div>
+   )) }
     </div>
   </div>
 </div>
@@ -342,16 +296,7 @@ function Home() {
       {/*  */}
       {/* facility */}
       <div className="mt-5" style={{ padding: "0 2rem" }}>
-  <h2
-    className="text-center mb-4"
-    style={{
-      fontFamily: "Playfair Display",
-      fontWeight: 600,
-      color: "#1E3A8A",
-    }}
-  >
-    Our Facilities
-  </h2>
+   <h1 style={{fontFamily:"Merriweather",color:"#1A3C8E",fontWeight:"bold"}} className="text-center">Our Facilities</h1>
 
   <p
     className="text-center mb-5"
@@ -359,7 +304,7 @@ function Home() {
       maxWidth: "650px",
       margin: "0 auto",
       fontFamily: "Inter",
-      color: "#555",
+      color: "#1B1B1B",
     }}
   >
     Our campus offers world-class facilities to ensure students learn, grow, and

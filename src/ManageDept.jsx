@@ -2,11 +2,11 @@ import React, {  useContext, useEffect, useState } from 'react'
 import SideBar from './Sidebar';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
-import { deleteFacultyAPI, getfacultyAPI } from './AllAPI';
+import { getfacultyAPI } from './AllAPI';
 import SERVER_URL from './SERVER_URL';
 
 
-function ManageFaculity() {
+function ManageDept() {
  const [allFaculty,setallFaculty] = useState([])
     console.log(allFaculty);
     
@@ -34,29 +34,6 @@ function ManageFaculity() {
             
           }
        }
-
-        const deleteFaculty=async(id)=>{
-             const token = sessionStorage.getItem("token")
-               if(token){
-             const reqHeader={
-               "content-type" : "application/json",
-                "authorization": `Bearer ${token}`
-           }
-           try{
-             const result=await deleteFacultyAPI(id,reqHeader)
-             console.log("data...",result);
-             if (result.status==200) {
-                  getAllFaculty()     
-             }
-             
-       
-           }
-           catch(err){
-             console.log();
-             
-           }
-         }
-         }
  
   return (
     <div>
@@ -75,11 +52,11 @@ function ManageFaculity() {
       fontSize: "2.2rem"
     }}
   >
-    Manage Faculty
+    Manage Departments
   </h2>
    <div className='mt-5'>
-      <Link to={'/add-faculty'}>
-        <button style={{backgroundColor:"#1A3C8E",fontFamily:"poppins",color:"#F4C430"}} className='btn  fw-bold'>Add Faculty<i class="fa-solid fa-plus"></i></button></Link>
+      <Link to={'/add-dept'}>
+        <button style={{backgroundColor:"#1A3C8E",fontFamily:"poppins",color:"#F4C430"}} className='btn  fw-bold'>Add New Department<i class="fa-solid fa-plus"></i></button></Link>
    </div>
             <div className="table-responsive mt-5" style={{ width: "90%", maxWidth: "800px" }}>
  {allFaculty.length>0 ? <Table striped bordered hover className="text-center mt-2">
@@ -112,15 +89,8 @@ function ManageFaculity() {
           <td>{fac.desg}</td>
           <td>{fac.qual}</td>
           <td>{fac.email}</td>
-          <td ><button
-           onClick={()=>deleteFaculty(fac._id)}
-           className='btn text-danger'><i class="fa-solid fa-trash"></i></button></td>
-         <td>
-          <Link to={`/edit-faculty/${fac._id}`}>
-                    <button 
-                  
-                      className='btn '> <i class="fa-solid fa-pen-to-square"></i></button></Link>
-          </td>
+          <td ><button className='btn text-danger'><i class="fa-solid fa-trash"></i></button></td>
+         <td><button className='btn text-gray'><i class="fa-solid fa-pen-to-square"></i></button></td>
      </tr>
    ))  }
 
@@ -134,4 +104,4 @@ function ManageFaculity() {
   )
 }
 
-export default ManageFaculity
+export default ManageDept

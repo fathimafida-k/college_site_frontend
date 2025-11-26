@@ -37,7 +37,7 @@ const navigate = useNavigate()
           left: "15px",
           background: "none",
           border: "none",
-          color: "#aab18b",
+          color: "#153366",
           fontSize: "1.8rem",
           zIndex: "1100",
           cursor: "pointer",
@@ -50,7 +50,7 @@ const navigate = useNavigate()
     <div 
   className={`sidebar d-flex flex-column align-items-center ${isOpen ? "open" : ""}`}
   style={{
-    backgroundColor: "#aab18b",
+    backgroundColor: "#153366",
     height: "100vh",
     width: "250px",
     padding: "1.5rem 1rem",
@@ -66,36 +66,32 @@ const navigate = useNavigate()
       
 
         <div>
-          <img
-            src={emblem}
-            alt="Logo"
-            style={{ height: "5.5rem", width: "auto", objectFit: "contain" }}
-          />
+           <h4 style={{color:"#F4C430",fontSize:"1.5rem",fontFamily:"Monteserrat"}}><i class="fa-solid fa-graduation-cap"></i>Raynott College</h4>
         </div>
 
-        {/* Sidebar Links */}
+      
         <div className="mt-5" style={{ width: "100%" }}>
          
 
-          {role === "admin" && (
             <>
                <Link  className="mt-3"  to={'/program-manage'} style={linkStyle}>
-                <i className="fa-solid fa-circle-exclamation"></i> Manage Courses
+             <i class="fa-solid fa-book"></i> Manage Courses
               </Link>
-             {/* <Link className="mt-3" to={'/'} style={linkStyle}>
-            <i className="fa-solid fa-grip"></i> Dashboard
-            </Link>
-              <Link  className="mt-3"  to={'/student-manage'} style={linkStyle} >
-                <i className="fa-solid fa-people-group"></i> Manage Student
+                 <Link  className="mt-3"  to={'/faculty-manage'} style={linkStyle}>
+             <i class="fa-solid fa-chalkboard-user"></i> Manage Faculty
               </Link>
-              <Link  className="mt-3"  to={'/faculty-manage'} style={linkStyle}>
-                <i className="fa-solid fa-house"></i> Manage Faculty
-              </Link> */}
+           
+                  <Link  className="mt-3"  to={'/admission-manage'} style={linkStyle}>
+            <i class="fa-solid fa-user"></i> Student Applications 
+              </Link>
+            
+          
+          
            
              
             
             </>
-          )}
+         
 
           {role === "faculty" && (
             <>

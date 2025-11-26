@@ -17,6 +17,14 @@ import AddCourse from './AddCourse'
 import ProgramDetails from './ProgramDetails'
 import Edit from './Edit'
 import About from './About'
+import Faculty from './Faculty'
+import AddFaculty from './AddFaculty'
+import DepartmentDetails from './DepartmentDetails'
+import Admission from './Admission'
+import ManageAdmission from './ManageAdmission'
+import ManageDept from './ManageDept'
+import AddDept from './AddDept'
+import EditFaculty from './EditFaculty'
 
 function App() {
  
@@ -40,10 +48,17 @@ function App() {
              <Route path={"/student-manage"} element={<ManageStudent/>} />
              <Route path={"/faculty-manage"} element={<ManageFaculity/>} />
                <Route path={"/program-manage"} element={<ManageProgram/>} />
+                  <Route path={"/faculty"} element={<Faculty/>} />
                 <Route path={"/add"} element={<AddCourse/>} />
                  <Route path={"/edit/:id"} element={<Edit/>} />
-
-                  <Route path="/programs/:id/" element={<ProgramDetails/>} />
+                  <Route path={"/edit-faculty/:id"} element={<EditFaculty/>} />
+                   <Route path={"/add-faculty"} element={<AddFaculty/>} />
+              <Route path={"/dept/7"} element={<DepartmentDetails/>} />
+                  <Route path={"/programs/:id/"} element={<ProgramDetails/>} />
+                    <Route path={"/admission"} element={<Admission/>} />
+                     <Route path={"/admission-manage"} element={<ManageAdmission/>} />
+                      <Route path={"/dept-manage"} element={<ManageDept/>} />
+                       <Route path={"/add-dept"} element={<AddDept/>} />
       </Routes> 
 
     </>

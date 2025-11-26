@@ -73,10 +73,10 @@ const handleLogin=async()=>{
   return (
 <div style={{width:"100vw",height:"100%",backgroundColor:"white"
 }}>
-       <h2 className='text-center pt-5' style={{color:"#04033afd",fontFamily:"Playfair display"}}>{insideregister ? "Create your Account" :"Login to your Account"}</h2>
+       <h2 className='text-center pt-5' style={{color:"#1B1B1B",fontFamily:"Playfair display"}}>{insideregister ? "Create your Account" :"Admin Login"}</h2>
     <div className='d-flex justify-content-center align-items-center mt-2' style={{height:"100vh"}}>
      
-        <div className='d-flex justify-content-center align-items-center flex-column' style={{ width:"38rem",height:"30rem",background:"linear-gradient(135deg, #0A1A47, #162B76)",borderRadius:"5px"}}>
+        <div className='d-flex justify-content-center align-items-center flex-column' style={{ width:"38rem",height:"30rem",background:"linear-gradient(135deg, #1A3C8E, #5768a7ff)",borderRadius:"5px"}}>
 
          {insideregister && <input onChange={(e)=>setuserData({...userData,name:e.target.value})} style={{width:"80%"}} className='form-control' type="text" placeholder='Username' />} <br />
 
@@ -103,9 +103,9 @@ const handleLogin=async()=>{
 
   {insideregister ?     <button onClick={handleRegister}  className='btn mt-3 fw-bold' style={{fontFamily:"lora",backgroundColor:"#ffffffff",color:"rgba(0, 0, 0, 1)",width:"30%"}}>Register</button>
 :
-<button onClick={handleLogin} className='btn mt-3 fw-bold' style={{fontFamily:"lora",backgroundColor:"#c9d0cfff",color:"rgba(0, 0, 0, 1)",width:"30%"}}>Login</button>}
+<button onClick={handleLogin} className='btn mt-3 fw-bold' style={{fontFamily:"lora",color:"#ffffffff",backgroundColor:"#F4C430",width:"30%"}}>Login</button>}
 
- { insideregister ?     <p style={{fontFamily:"poppins",color:"white"}}>Already have an account ? <Link to={'/login'} style={{color:"rgba(49, 102, 105, 1)"}}>Login</Link></p>
+ { insideregister ?     <p style={{fontFamily:"poppins",color:"white"}}>Already have an account ? <Link to={'/login'} style={{color:"#F4C430"}}>Login</Link></p>
  :
          <p className='mt-2' style={{fontFamily:"poppins",color:"white"}}>*Admin access only </p>}
         </div>

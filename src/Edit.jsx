@@ -14,7 +14,7 @@ function Edit() {
   const [allCourses, setAllCourses] = useState([]);
   const [getCourse, setGetCourse] = useState(null);
   
-  // 1. Image States: imagePreview holds the existing URL; preview holds the URL for a newly selected file.
+
   const [imagePreview, setImagePreview] = useState(null);
   const [preview, setPreview] = useState("");
   
@@ -25,11 +25,10 @@ function Edit() {
     level: "",
     fees: "",
     syllabus: "",
-    faculty: "",
-    image: null // Stores the new File object
+    image: null 
   });
 
-  // Function to fetch all courses (needed to find the specific course data)
+
   const getAllCourse = async () => {
     const token = sessionStorage.getItem("token");
     if (token) {
@@ -49,12 +48,12 @@ function Edit() {
     }
   };
 
-  // Fetch all courses on component mount
+ 
   useEffect(() => {
     getAllCourse();
   }, []);
 
-  // Find the course to edit and populate state
+
   useEffect(() => {
     if (allCourses.length > 0) {
       const course = allCourses.find(item => item._id === id);
@@ -67,16 +66,14 @@ function Edit() {
           level: course.level || "",
           fees: course.fees || "",
           syllabus: course.syllabus || "",
-          faculty: course.faculty || "",
-          image: null // Keep this null initially
+          image: null 
         });
-        // Set imagePreview to the URL of the existing image for display
+        
         setImagePreview(course.image ? `${SERVER_URL}/uploads/${course.image}` : null);
       }
     }
   }, [allCourses, id]);
 
-  // Handle new file selection and preview
   useEffect(() => {
     const file = addCourse.image;
     if (file && file instanceof File) {
@@ -92,13 +89,12 @@ function Edit() {
     }
   }, [addCourse.image]);
 
-  // Handle form submission
   const handleUpload = async (e) => {
-    e.preventDefault(); // 🛑 FIX: Prevents the page from reloading on button click
+    e.preventDefault(); 
 
-    const { Cname, description, duration, level, fees, syllabus, faculty, image } = addCourse;
+    const { Cname, description, duration, level, fees, syllabus, image } = addCourse;
 
-    if (!Cname || !description || !duration || !level || !fees || !syllabus || !faculty) {
+    if (!Cname || !description || !duration || !level || !fees || !syllabus) {
       toast.warning("Please fill all required fields");
       return;
     }
@@ -110,9 +106,9 @@ function Edit() {
     reqBody.append("level", level);
     reqBody.append("fees", fees);
     reqBody.append("syllabus", syllabus);
-    reqBody.append("faculty", faculty);
+   
     
-    // Append the new image only if one was selected
+    
     if (image) {
       reqBody.append("image", image);
     }
@@ -143,10 +139,6 @@ function Edit() {
       toast.error("Session expired. Please log in again.");
     }
   };
-
-
-
-
 
   return (
     <div className="container-fluid">
@@ -220,7 +212,7 @@ function Edit() {
                 <input
                   value={addCourse.fees}
                   onChange={(e) => setAddCourse({ ...addCourse, fees: e.target.value })}
-                  type="number"
+                  type="text"
                   className="form-control mt-1"
                   placeholder="Enter fees"
                 />
@@ -233,14 +225,7 @@ function Edit() {
                   placeholder="Enter syllabus topics separated by commas"
                 />
 
-                <label className='mt-2'>Faculty Name:</label>
-                <input
-                  value={addCourse.faculty}
-                  onChange={(e) => setAddCourse({ ...addCourse, faculty: e.target.value })}
-                  type="text"
-                  className="form-control mt-1"
-                  placeholder="Enter faculty name"
-                />
+             
 
                 <h5 className='text-center mt-3'>Upload Course Image</h5>
                 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
@@ -254,7 +239,7 @@ function Edit() {
                     <label htmlFor="chosefile">
                       <img
                         style={{ borderRadius: "8px", objectFit: "cover" }}
-                        // 2. Image Source Logic: Use new preview if available, otherwise use existing image URL
+                       
                         src={preview || imagePreview || 'https://via.placeholder.com/150'} 
                         alt="Course Image"
                         width={"100%"}

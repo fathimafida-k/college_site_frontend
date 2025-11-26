@@ -3,42 +3,32 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer style={{ backgroundColor: "#0A1A36", color: "#ecf0f1", padding: "3rem 1rem" }}>
+    <footer style={{ backgroundColor: "#102A63", color: "#ecf0f1", padding: "3rem 1rem" }}>
       <div className="container">
         <div className="row">
 
-          {/* About College */}
+       
           <div className="col-lg-4 mb-4">
-            <h2 style={{ fontFamily: "playfair display, serif", fontWeight: "700", color: "#66B2FF" }}>
-              University of Kerala
-            </h2>
+             <h2 style={{color:"#F4C430",fontSize:"1.5rem",fontFamily:"Monteserrat"}}><i class="fa-solid fa-graduation-cap"></i>Raynott College</h2>
+           
             <p style={{ fontFamily: "Inter", fontSize: "0.95rem", color: "#cdd3d8" }}>
               A premier institution known for academic excellence, research, innovation, and holistic development.
               Empowering students to achieve their dreams since 1990.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="col-lg-2 mb-4">
-            <h5 style={{ fontFamily: "Merriweather, serif", fontWeight: "600", color: "#ffffffff" }}>Quick Links</h5>
+       
+          <div className="col-lg-4 mb-4">
+            <h5 style={{ fontFamily: "Merriweather, serif", fontWeight: "600", color: "#F4C430" }}>Quick Links</h5>
             <Link to="/" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Home</Link>
             <Link to="/departments" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Departments</Link>
             <Link to="/admissions" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Admissions</Link>
             <Link to="/contact" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Contact</Link>
           </div>
 
-          {/* Academic Links */}
-          <div className="col-lg-2 mb-4">
-            <h5 style={{ fontFamily: "Merriweather, serif", fontWeight: "600", color: "#ffffffff" }}>Academics</h5>
-            <Link to="/programs" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Programs</Link>
-            <Link to="/faculty" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Faculty</Link>
-            <Link to="/placements" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Placements</Link>
-            <Link to="/campus-life" style={{ display: "block", color: "#ecf0f1", margin: "0.4rem 0", textDecoration: "none" }}>Campus Life</Link>
-          </div>
-
           {/* Newsletter + Social */}
           <div className="col-lg-4 mb-4">
-            <h5 style={{ fontFamily: "Merriweather, serif", fontWeight: "600", color: "#ffffffff" }}>Stay Updated</h5>
+            <h5 style={{ fontFamily: "Merriweather, serif", fontWeight: "600", color: "#F4C430" }}>Stay Updated</h5>
             <p style={{ fontFamily: "Inter", fontSize: "0.95rem", color: "#cdd3d8" }}>
               Subscribe to our newsletter for college updates, events, and notices.
             </p>
